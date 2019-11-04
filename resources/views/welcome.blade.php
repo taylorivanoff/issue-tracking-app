@@ -4,9 +4,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 pt-5 mt-5">
-			<h1 class="display-4">Keep web <br> maintenance simple, with Bug Tracker.</h1>
+			<h1 class="display-4">Keep web <br> maintenance simple with Bug Tracker.</h1>
 			@guest
-			<a href="/register" class="btn btn-primary btn-lg mt-4">Sounds, good!</a>
+			<a href="/register" class="btn btn-primary btn-lg mt-4">Sounds good!</a>
 			@else
 			<a href="/projects" class="btn btn-primary btn-lg mt-4">Let's get to work!</a>
 			@endguest
