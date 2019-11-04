@@ -58,6 +58,8 @@ class IssueController extends Controller
      */
     public function show(Issue $issue)
     {
+        if (!$issue->users->contains(auth()->user()->id)) return redirect('/');
+
          return view('issues.show', [
             'issue' => $issue,
             'project' => $issue->project()->firstOrFail(),

@@ -18,7 +18,7 @@ class ProjectController extends Controller
     public function index()
     {
         return view('projects.index', [
-            'projects' => Project::latest()->get()
+            'projects' => auth()->user()->projects()->latest()->get()
         ]);
     }
 
@@ -45,7 +45,7 @@ class ProjectController extends Controller
             'description' => $request->description,
         ]);
         
-        $project->users()->attach(1);
+        $project->users()->attach(auth()->user()->id);
 
         return redirect('projects');
     }
@@ -58,6 +58,8 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        if (!$project->users->contains(auth()->user()->id)) return redirect('/');
+        
         return view('projects.show', [
             'project' => $project,
             'issues' => $project->issues()->latest()->get()
