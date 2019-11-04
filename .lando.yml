@@ -1,0 +1,12 @@
+name: bug-tracker
+recipe: laravel
+config:
+  webroot: public
+proxy: 
+  admin:
+    - pma.bug-tracker.lndo.site
+services:
+  admin:
+    type: phpmyadmin
+    hosts:
+      - database
